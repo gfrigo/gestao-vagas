@@ -1,0 +1,19 @@
+Erro -> org.postgresql.util.PSQLException: FATAL: password authentication failed for user "admin"
+
+Erro gerado ao inicializar a aplicação com Spring Boot
+Erro retornado ao conectar no banco de dados usando PostBird
+Obs: Docker estava rodando normalmente
+
+Solução:
+1: docker exec -it gestao_vagas_postgres bash
+2: Entrar no container no app Docker Desktop
+3: Acessar os Files
+4: Seguir o Caminho: docker exec -it gestao_vagas_postgres bash
+5: Editar com a linha:
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+host    all             all             0.0.0.0/0               md5
+
+6: Reiniciar o Docker com: docker restart gestao_vagas_postgres
+
+
+
