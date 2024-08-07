@@ -16,7 +16,8 @@ public class SecurityConfig {
     http.csrf(csrf -> csrf.disable()) // Evita autenticações desnecessárias
       .authorizeHttpRequests(auth -> {
         auth.requestMatchers("/candidate/").permitAll()
-          .requestMatchers("/company/").permitAll();
+          .requestMatchers("/company/").permitAll()
+          .requestMatchers("/auth/company").permitAll();
         auth.anyRequest().authenticated();
       });
     return http.build();
